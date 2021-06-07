@@ -1,4 +1,4 @@
-# Find factors of a given number.
+# Data Structures & Algorithms implementation using C++
 
 ### 1. Stack
 	1.1. Using array
