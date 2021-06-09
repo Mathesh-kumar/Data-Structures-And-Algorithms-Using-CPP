@@ -1,0 +1,22 @@
+1. stack operation
+    LIFO - last in first out
+    FILO - first in last out
+
+2. real life example
+    plates stacked one over the another.
+
+3. implementation
+    using array (stack size fixed)
+    using linked list (stack size not fixed)
+
+4. basic operations
+    push()      - push element into stack
+    pop()       - pop the top element from stack
+    peek()      - displays the top element
+    isfull()    - check whether the stack is full or not
+    isempty()   - check whether the stack is empty or not
+
+5. application
+    balancing paranthesis checking
+    expression conversion (infix, postfix, prefix)
+    reverse a string
