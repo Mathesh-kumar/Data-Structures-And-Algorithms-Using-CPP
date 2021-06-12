@@ -18,7 +18,8 @@ class BSTtree
         BSTtree();
         int empty();
         int insert(Node*, Node*);
-        int remove();
+        int remove(int);
+        int search(int);
         void inorder(Node*);
         void postorder(Node*);
         void preorder(Node*);
@@ -71,9 +72,80 @@ int BSTtree::insert(Node* temp, Node* n)
     return 1;
 }
 
-int BSTtree::remove()
+int BSTtree::remove(int n)
 {
+    Node* child = root;
+    Node* parent;
     
+    while(child != NULL)
+    {
+        if(child->data == n)
+        {
+            if(child->left==NULL && child->right==NULL)
+            {
+                if(child == root)
+                    root = NULL;
+                else if(child == parent->left)
+                    parent->left = NULL;
+                else
+                    parent->right = NULL;
+            }
+            else if(child->left==NULL && child->right!=NULL)
+            {
+                if(child == root)
+                    root = child->right;
+                else  
+                    parent->right = child->right;
+            }
+            else if(child->left!=NULL && child->right==NULL)
+            {
+                if(child == root)
+                    root = child->left;
+                else  
+                    parent->left = child->left;
+            }
+            else
+            {
+                Node* schild = child->right;
+                Node* sparent = schild;
+                while(schild->left != NULL)
+                {
+                    sparent = schild;
+                    schild = schild->left;
+                }
+                child->data = schild->data;
+                if(sparent == schild)
+                    child->right = schild->right;
+                else
+                    sparent->left = schild->right;
+            }
+
+            return 1;
+        }
+
+        parent = child;
+        if(child->data > n) 
+            child = child->left;
+        else
+            child = child->right;
+    }
+
+    return 0;
+}
+
+int BSTtree::search(int n)
+{
+    Node* temp = root;
+    while(temp != NULL)
+    {
+        if(temp->data == n)
+            return 1;
+        else if(temp->data > n)
+            temp = temp->left;
+        else
+            temp = temp->right;
+    }
+    return 0;
 }
 
 void BSTtree::inorder(Node* temp)
@@ -150,7 +222,13 @@ int main()
     n = new Node(7);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(29);
+    n = new Node(28);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(17);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(13);
     res = bs.insert(bs.getroot(), n);
 
     cout<<"\nInorder : ";
@@ -161,6 +239,24 @@ int main()
 
     cout<<"\nPostorder : ";
     bs.postorder(bs.getroot());
+
+    int out = bs.search(28);
+    if(out == 0)
+        cout<<"\nData not found";
+    else
+        cout<<"\nData found";
+
+    res = bs.remove(10);
+    //res = bs.remove(2);
+
+    if(res == 1)
+        cout<<"\nDeletion success.";
+    else
+        cout<<"\nNo element to delete. Deletion failure";
+
+    cout<<"\nInorder : ";
+    bs.inorder(bs.getroot());
+
 
     return 0;
 }
