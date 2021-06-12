@@ -19,10 +19,9 @@ class BSTtree
         int empty();
         int insert(Node*, Node*);
         int remove();
-        int search();
         void inorder(Node*);
-        int postorder(Node*);
-        int preorder(Node*);
+        void postorder(Node*);
+        void preorder(Node*);
         Node* getroot();
     private:
         Node* root;
@@ -52,7 +51,6 @@ int BSTtree::insert(Node* temp, Node* n)
         root = n;
     else
     {
-        cout<<"inside insert : "<<temp->data<<endl;
         if(temp->data > n->data)
         {
             if(temp->left == NULL)
@@ -78,11 +76,6 @@ int BSTtree::remove()
     
 }
 
-int BSTtree::search()
-{
-    
-}
-
 void BSTtree::inorder(Node* temp)
 {
     if(temp != NULL)
@@ -93,14 +86,24 @@ void BSTtree::inorder(Node* temp)
     }
 }
 
-int BSTtree::preorder(Node* temp)
+void BSTtree::preorder(Node* temp)
 {
-    
+    if(temp != NULL)
+    {
+        cout<<temp->data<<" ";
+        preorder(temp->left);
+        preorder(temp->right);
+    }
 }
 
-int BSTtree::postorder(Node* temp)
+void BSTtree::postorder(Node* temp)
 {
-    
+    if(temp != NULL)
+    {
+        postorder(temp->left);
+        postorder(temp->right);
+        cout<<temp->data<<" ";
+    }
 }
 
 Node* BSTtree::getroot()
@@ -117,13 +120,47 @@ int main()
     n = new Node(10);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(5);
-    res = bs.insert(bs.getroot(), n);
-
     n = new Node(20);
     res = bs.insert(bs.getroot(), n);
 
+    n = new Node(30);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(5);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(2);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(15);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(40);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(1);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(3);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(2);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(7);
+    res = bs.insert(bs.getroot(), n);
+
+    n = new Node(29);
+    res = bs.insert(bs.getroot(), n);
+
+    cout<<"\nInorder : ";
     bs.inorder(bs.getroot());
+
+    cout<<"\nPreorder : ";
+    bs.preorder(bs.getroot());
+
+    cout<<"\nPostorder : ";
+    bs.postorder(bs.getroot());
 
     return 0;
 }

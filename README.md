@@ -21,3 +21,6 @@
 
 ### 6. Linked List Problems
 	6.1.
+
+### 7. Binary Tree
+	7.1. Binary Search Tree
