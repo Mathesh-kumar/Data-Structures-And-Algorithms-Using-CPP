@@ -189,46 +189,28 @@ int main()
     Node* n;
     int res;
 
-    n = new Node(10);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(20);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(30);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(5);
+    n = new Node(6);
     res = bs.insert(bs.getroot(), n);
 
     n = new Node(2);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(15);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(40);
     res = bs.insert(bs.getroot(), n);
 
     n = new Node(1);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(3);
+    n = new Node(11);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(2);
+    n = new Node(8);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(7);
+    n = new Node(9);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(28);
+    n = new Node(10);
     res = bs.insert(bs.getroot(), n);
 
-    n = new Node(17);
-    res = bs.insert(bs.getroot(), n);
-
-    n = new Node(13);
+    n = new Node(15);
     res = bs.insert(bs.getroot(), n);
 
     cout<<"\nInorder : ";
@@ -246,8 +228,7 @@ int main()
     else
         cout<<"\nData found";
 
-    res = bs.remove(10);
-    //res = bs.remove(2);
+    res = bs.remove(6);
 
     if(res == 1)
         cout<<"\nDeletion success.";
