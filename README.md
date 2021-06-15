@@ -22,5 +22,9 @@
 ### 6. Linked List Problems
 	6.1.
 
-### 7. Binary Tree
+### 7. Trees
 	7.1. Binary Search Tree
+	7.2. Binary Tree Problems
+		7.2.1. Find Node Count
+		7.2.2. Find Height
+	7.3. AVL Tree
