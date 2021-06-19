@@ -18,8 +18,6 @@ class BSTtree
     public:
         BSTtree();
         Node* insert(Node*, int);
-        int remove(Node*, int);
-        int search(Node*, int);
         void inorder(Node*);
         void postorder(Node*);
         void printlevel(Node*, int);
@@ -54,26 +52,6 @@ Node* BSTtree::insert(Node* root, int n)
             return root;
     }
     return root;
-}
-
-int BSTtree::remove(Node* root, int n)
-{
-}
-
-// function to srach particular node in the tree
-int BSTtree::search(Node* root, int n)
-{
-    Node* temp = root;
-    while(temp != NULL)
-    {
-        if(temp->data == n)
-            return 1;
-        else if(temp->data > n)
-            temp = temp->left;
-        else
-            temp = temp->right;
-    }
-    return 0;
 }
 
 // function to print the nodes in inorder traversal
@@ -133,7 +111,7 @@ int BSTtree::countNodes(Node* root)
 int BSTtree::maxDepth(Node* root)
 {
     if(root == NULL)
-        return 0;
+        return -1;
     else
     {
         int leftDepth = maxDepth(root->left);
@@ -166,10 +144,6 @@ int main()
 
     cout<<"\nPostorder : ";
     bs.postorder(root);
-
-    int out;
-    out = bs.search(root, 15);
-    cout<<((out)?"\nData found":"\nData not found");
 
     cout<<"\nNo of nodes in the tree : "<<bs.countNodes(root);
 
