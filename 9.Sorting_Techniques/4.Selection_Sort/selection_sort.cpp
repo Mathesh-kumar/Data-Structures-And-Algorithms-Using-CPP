@@ -5,17 +5,16 @@ void selectionSort(int* arr, int n)
 {
     for(int i=0; i<n; i++)
     {
-        int min = arr[i], minIndex = i;
+        int minIndex = i;
         for(int j=i; j<n; j++)
-        {
-            if(min > arr[j])
-            {
-                min = arr[j];
+            if(arr[minIndex] > arr[j])
                 minIndex = j;
-            }
+        if(minIndex != i)
+        {
+            arr[i]^=arr[minIndex];
+            arr[minIndex]^=arr[i];
+            arr[i]^=arr[minIndex];
         }
-        arr[minIndex] = arr[i];
-        arr[i] = min;
     }
 }
 
