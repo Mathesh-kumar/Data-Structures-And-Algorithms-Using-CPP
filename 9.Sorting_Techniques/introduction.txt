@@ -1,0 +1,3 @@
+in these we are going to discuss about different sorting techniques.
+
+1. normal sorting
