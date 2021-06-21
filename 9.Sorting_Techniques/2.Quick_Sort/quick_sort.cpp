@@ -5,22 +5,18 @@ int partition(int* arr, int start, int end)
 {
     int pivot = arr[start];
     int pivotIndex = start;
-    while(true)
+    while(start<end)
     {
-        if(pivot>=arr[start])
+        while(pivot>=arr[start])
             start+=1;
-        else if(pivot<arr[end])
+        while(pivot<arr[end])
             end-=1;
-        else if(start<end)
+        if(start<end)
         {
             arr[start]^=arr[end];
             arr[end]^=arr[start];
             arr[start]^=arr[end];
-            start+=1;
-            end-=1;
         }
-        else
-            break;
     }
     arr[pivotIndex] = arr[end];
     arr[end] = pivot;
