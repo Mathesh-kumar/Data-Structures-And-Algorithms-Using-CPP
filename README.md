@@ -26,5 +26,16 @@
 	7.1. Binary Search Tree
 	7.2. Binary Tree Problems
 		7.2.1. Find Node Count
-		7.2.2. Find Height
+		7.2.2. Find Height/Depth
+		7.2.3. Print Outer Nodes
+		7.2.4. Level Order Traversal
 	7.3. AVL Tree
+
+### 8. Heap
+	8.1.
+
+### 9. Sorting Techniques
+	9.1. Bubble Sort
+	9.2. Quick Sort
+	9.3. Insertion Sort
+	9.4. Selection Sort
