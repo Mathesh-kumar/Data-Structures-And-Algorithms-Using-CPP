@@ -39,3 +39,4 @@
 	9.2. Quick Sort
 	9.3. Insertion Sort
 	9.4. Selection Sort
+	9.5. Merge Sort
