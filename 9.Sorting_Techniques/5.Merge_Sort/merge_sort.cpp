@@ -6,15 +6,15 @@ void merge(int* arr, int low, int mid, int high)
     int size1 = (mid-low)+1, size2 = high-mid;
     int arr1[size1], arr2[size2];
 
-    int k=0;
-    for(int i=low; i<=mid; i++)
-        arr1[k++] = arr[i];
-    
-    k=0;
-    for(int i=mid+1; i<=high; i++)
-        arr2[k++] = arr[i];
-
     int i=0, j=0;
+    for(i=low; i<=mid; i++)
+        arr1[j++] = arr[i];
+    
+    j=0;
+    for(i=mid+1; i<=high; i++)
+        arr2[j++] = arr[i];
+
+    i=0, j=0;
     while(true)
     {
         while(arr1[i]<=arr2[j] && i<size1)
